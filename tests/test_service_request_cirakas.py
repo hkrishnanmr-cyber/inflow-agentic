@@ -234,7 +234,15 @@ class TestServiceRequestCirakas:
         try:
             page = self._navigate_to_service_request(page)
 
-            edit_found = False
+            # Click on first service request card to open detail page
+            first_card = page.locator("h3").first
+            if first_card.is_visible():
+                first_card.click()
+                page.wait_for_timeout(3000)
+            else:
+                pytest.skip("No service request cards found")
+
+            # Now look for Edit button on detail page
             edit_selectors = [
                 "button:has-text('Edit')", "[title*='Edit' i]",
                 "[aria-label*='Edit' i]", "[data-testid*='edit']",
@@ -246,37 +254,36 @@ class TestServiceRequestCirakas:
                 loc = page.locator(sel).first
                 if loc.is_visible():
                     edit_btn = loc
-                    edit_found = True
                     break
 
-            if edit_btn:
-                edit_btn.click(force=True)
-                page.wait_for_timeout(3000)
+            if edit_btn is None:
+                pytest.skip("No edit button found on detail page")
 
-                name_selectors = [
-                    "input[name='name']", "input[name='title']",
-                    "input[id*='name']", "input[id*='title']",
-                ]
-                for sel in name_selectors:
-                    loc = page.locator(sel).first
-                    if loc.is_visible():
-                        loc.fill("Updated SR - Automation " + str(int(time.time())))
-                        break
+            edit_btn.click(force=True)
+            page.wait_for_timeout(3000)
 
-                save_selectors = [
-                    "button[type='submit']", "button:has-text('Save')",
-                    "button:has-text('Update')",
-                ]
-                for sel in save_selectors:
-                    loc = page.locator(sel).first
-                    if loc.is_visible():
-                        loc.click(force=True)
-                        page.wait_for_timeout(3000)
-                        break
-            elif not edit_found:
-                pytest.skip("No edit button found")
-            else:
-                pytest.skip("No edit button found")
+            # Modify title
+            name_selectors = [
+                "input[name='name']", "input[name='title']",
+                "input[id*='name']", "input[id*='title']",
+            ]
+            for sel in name_selectors:
+                loc = page.locator(sel).first
+                if loc.is_visible():
+                    loc.fill("Updated SR - Automation " + str(int(time.time())))
+                    break
+
+            # Save
+            save_selectors = [
+                "button[type='submit']", "button:has-text('Save')",
+                "button:has-text('Update')",
+            ]
+            for sel in save_selectors:
+                loc = page.locator(sel).first
+                if loc.is_visible():
+                    loc.click(force=True)
+                    page.wait_for_timeout(3000)
+                    break
 
             page.wait_for_timeout(1000)
         finally:
