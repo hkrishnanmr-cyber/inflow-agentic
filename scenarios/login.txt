@@ -11,6 +11,10 @@ Super Admin user:
 - correct user name: arun@yopmail.com
 - correct password: Cirakas@123456
 
+Accountant user
+- correct user name: praveen@yopmail.com
+- correct password: Cirakas@123456
+
 Validate:
 - presence of email and password field
 - proper validations are added to email and password before and after entry

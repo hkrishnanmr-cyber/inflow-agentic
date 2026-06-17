@@ -1,0 +1,31 @@
+MODULE- PETTY CASH 
+
+In petty cash page 3 sections are there for super admin and admin like funds, transactions and 
+requests.
+In petty cash page super admin and admin can able to add fund for each project site with fund name,
+initial amount, new balance threshold and notes.
+When a request is coming for admin/super admin, they can approve or reject the request.
+When rejecting a request recting reason will mention and it will show in the request page.
+A request coming can able to do  approve and mark as paid together and also can able to approve
+first then through next step can able to mark as paid by admin and super admin.
+In transaction table transaction id, date, fund, type, amount, direction and paid by fields are showing
+When a request is marking as paid it will transferred to transaction page. And also when a fund 
+is recharging it also showing in transaction page.
+For project manager and team member only their requests can able to see.
+For super admin all fund transactions and requests can able to see.
+For admin if the admin exist in 3 project sites all these project sites  funds, transactions and 
+requests can able to see.
+Total fund amount, available fund balance, pending request and transactions count can able to see
+in the petty cash page.
+Fund search field is there in fund page and for request page in petty cash management
+Fund can able to edit ,can able to recharge a fund and also can able to delete a fund.
+For super admin all project which has fund will show in the all project site drop down. for admin the
+admin, project manager and team member existing project site if having fund it will show in the
+project site drop down. 
+If 2 project sites are existing for an admin, project manger or team member then the fund regarding
+ to that project site only will show when trying to create a request.
+When super admin creating a fund in project site drop down all project site will show.But when 
+admin creating a fund in project site drop down all fund under the admin's project site will show in 
+the drop down.
+The accountant can able to make a request as mark as paid only when admin/ super admin
+ approving a request.
