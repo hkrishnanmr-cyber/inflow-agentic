@@ -1,0 +1,19 @@
+Scenario:
+User login
+
+https://qa.cirakas.com/login/
+
+Admin user:
+- correct user name: rajeev@yopmail.com
+- correct password: Cirakas@123456
+
+Super Admin user:
+- correct user name: arun@yopmail.com
+- correct password: Cirakas@123456
+
+Validate:
+- presence of email and password field
+- proper validations are added to email and password before and after entry
+- correct entry will lead to 2fa page
+- obtain otp after 5 seconds
+- OTP field validations

@@ -1,0 +1,16 @@
+WORKFLOW 
+
+1. Create workflow
+2. View created workflow list 
+3. Edit workflow
+4. Delete workflow
+5. Execute workflow
+6. When executing the workflow the task within the workflow will see in the task list.
+7. All project site filter is there.
+8. For workflow both card and list view is there.
+9. Search field is there for workflow.
+10. For super admin all tasks can able to see. For admin assigned project sites all tasks 
+should able to see.
+11. When a user is starting, giving progress, pausing , 
+resuming or completing any task the user existing project site admin and super admin 
+can able to see each status doing by the assigned user

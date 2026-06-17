@@ -1,0 +1,52 @@
+ID,Scenario,Priority,Precondition,Steps,Expected Result,Actual Result,Status,Remarks
+TC_LOG_01,Verify login page loads successfully with email and password fields present,P1,User navigates to https://qa.cirakas.com/login/,"1. Open browser
+2. Navigate to https://qa.cirakas.com/login/
+3. Check email field exists
+4. Check password field exists",Page loads. Email field (#login-email) and password field (#login-password) are both present and visible,,,
+TC_LOG_02,Verify email field has HTML5 email type validation before submission,P1,Login page is loaded,"1. Enter invalid email ""abc"" in email field
+2. Check input type is ""email""","Input type=""email"" triggers browser validation for proper email format",,,
+TC_LOG_03,Verify email field is required (empty submission shows validation),P1,Login page is loaded,"1. Leave email field empty
+2. Click Sign In button",Browser shows validation message on email field (field is marked as :invalid),,,
+TC_LOG_04,Verify password field is required (empty submission shows validation),P1,Login page is loaded,"1. Fill valid email
+2. Leave password field empty
+3. Click Sign In button",Browser shows validation message on password field,,,
+TC_LOG_05,Verify login with valid credentials navigates to 2FA page,P1,Valid credentials available,"1. Enter email rajeev@yopmail.com
+2. Enter password Cirakas@123456
+3. Click Sign In button",Page transitions to 2FA verification screen showing OTP input field,,,
+TC_LOG_06,Verify 2FA page shows OTP input field,P1,User is on 2FA page after valid login,"1. After successful login
+2. Check for OTP input field","OTP input field with id=""otp"" and placeholder ""Enter 6-digit code"" is visible",,,
+TC_LOG_07,Verify 2FA page shows 'Sending verification code' message,P2,User is on 2FA page after valid login,"1. After successful login
+2. Check page text",Page displays 'Sending your verification code...' message,,,
+TC_LOG_08,Verify OTP field accepts 6-digit code,P2,User is on 2FA page,"1. Enter 123456 in OTP field
+2. Verify input value",OTP field accepts exactly 6 numeric digits,,,
+TC_LOG_09,Verify empty OTP submission shows validation,P2,User is on 2FA page,"1. Leave OTP field empty
+2. Click Verify button",Browser shows validation or error message for empty OTP,,,
+TC_LOG_10,Negative: Verify login with invalid email format fails,P2,Login page is loaded,"1. Enter invalid email (no @)
+2. Enter valid password
+3. Click Sign In",Form submission is blocked by browser validation (email input is :invalid),,,
+TC_LOG_11,Negative: Verify login with wrong password,P2,Login page is loaded,"1. Enter valid email rajeev@yopmail.com
+2. Enter wrong password WrongPass123
+3. Click Sign In",Error message is displayed or user stays on login page,,,
+TC_LOG_12,Negative: Verify login with empty fields,P2,Login page is loaded,"1. Leave both fields empty
+2. Click Sign In",Email field is marked as invalid by HTML5 validation,,,
+TC_LOG_13,Negative: Verify login with non-existent email,P2,Login page is loaded,"1. Enter nonexistent@example.com
+2. Enter any password
+3. Click Sign In",Error message is displayed and user stays on login page,,,
+TC_LOG_14,Negative: Verify OTP with non-numeric characters,P2,User is on 2FA page,"1. Enter alphabetic characters in OTP field
+2. Check field behavior",OTP field may reject or handle non-numeric input gracefully,,,
+TC_LOG_15,Negative: Verify OTP with wrong code,P2,User is on 2FA page,"1. Enter 000000 in OTP field
+2. Click Verify",Error message is displayed for invalid OTP,,,
+TC_LOG_16,Edge: Verify email field trims whitespace,P2,Login page is loaded,"1. Enter ' rajeev@yopmail.com ' (with spaces)
+2. Enter valid password
+3. Click Sign In",Login succeeds and navigates to 2FA page (email is trimmed),,,
+TC_LOG_17,Edge: Verify OTP field max length is 6 characters,P2,User is on 2FA page,"1. Enter 1234567 (7 digits) in OTP field
+2. Check field value",OTP field only accepts max 6 digits,,,
+TC_LOG_18,Edge: Verify 'Back' button on 2FA page navigates back to login,P2,User is on 2FA page,1. Click Back button on 2FA page,User is navigated back to the login form with email/password fields,,,
+TC_LOG_19,Accessibility: Verify labels are associated with input fields,P3,Login page is loaded,"1. Check for label elements associated with #login-email and #login-password
+2. Verify placeholder text is present",Input fields have proper labels or aria-labels for screen readers,,,
+TC_LOG_20,Accessibility: Verify keyboard navigation between fields,P3,Login page is loaded,"1. Tab from email to password field
+2. Tab to Sign In button",Tab order follows: email -> password -> Sign In button,,,
+TC_LOG_21,Boundary: Verify very long email input,P3,Login page is loaded,"1. Enter 255-character email in email field
+2. Check if field accepts it",Email field handles long input gracefully without breaking layout,,,
+TC_LOG_22,Regression: Run full login test suite,P1,All previous test cases passed,"1. Execute all login test cases
+2. Compare results with baseline",All tests produce consistent results with previous run,,,

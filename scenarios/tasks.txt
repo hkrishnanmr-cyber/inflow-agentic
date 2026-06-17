@@ -1,0 +1,22 @@
+MODULE 1- TASK
+Creation of tasks
+The created tasks should able to see
+Editing of each task 
+Listing all task
+In each task card  reassign button should be there for admin,super admin.
+Task can able to assign to single or multiple members in a  project site.
+In each task card alert button should be there if task is not completed for any 
+user if any task is created by them and assigning to any other user
+In task page calendar, list and card view is there.
+The user in which the task assigned can able to start, can able to give progress, and can able
+ to pause, resume and complete the task
+When a task is pausing related task can able give. Means due to which task the task is pausing
+ can able to give. The resume button for the paused task will enable only when the related task 
+is completed.
+Can able to filter the tasks by status, priorities and project sites.
+In task page priorities,status and project site filters are there.
+Each tasks title, description, priorities and status and if the task is overdue then the overdue days will
+also show in the task cards
+ For super admin all tasks can able to see. For admin assigned project sites all tasks 
+should able to see.
+Project manager and team member can able to see their created and assigned tasks.
