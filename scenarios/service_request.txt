@@ -1,0 +1,24 @@
+MODULE- SERVICE REQUEST
+
+Create service request - inside user
+Create service request - outsource(This service request is assigning for outside users.)
+Editing of each service requests
+Listing all Service requests
+Reassignment of each service request to another user.
+Task can able to assign to single or multiple members in a project site.
+Can able to give alert for each service request  if it is not completed on time.
+In task page calendar, list and card view is there.
+The user (inside or outside )in which the service request assigned can able to start, 
+can able to give progress, and can able to pause, resume and complete the task
+When a service request is pausing related service request can able give. Means due to which 
+service request the service request is pausing can able to give. The resume button for the paused 
+service request will enable only when the related service request is completed.
+Can able to filter the service request status, priorities and project sites.
+In service request  page priorities,status and project site filters are there.
+Each service request title, description, priorities and status and if the task is overdue then the 
+overdue days will also show in the service request list
+ For super admin all service request can able to see. For admin assigned project sites all service
+ requests  should able to see.
+When an inside or outside user is starting, giving progress, pausing , 
+resuming or completing any service request the user existing project site admin and super admin 
+can able to see each status doing by the assigned user
